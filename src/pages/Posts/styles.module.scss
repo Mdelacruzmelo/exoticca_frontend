@@ -1,0 +1,28 @@
+.main_container {
+    background-color: white;
+    width: 1200px;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+.filtersContainer {
+    padding: 1rem;
+}
+
+.inputLabel {
+    top: -6px !important;
+}
+
+.table {
+    box-shadow: none !important;
+}
+
+.notFound {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2rem;
+}

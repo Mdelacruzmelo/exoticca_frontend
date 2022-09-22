@@ -1,0 +1,17 @@
+{
+    "eslint.options": {
+        "overrideConfigFile": ".eslintrc.json"
+    },
+    "eslint.validate": [
+        "typescript",
+        "typescriptreact"
+    ],
+    "editor.codeActionsOnSave": {
+        "source.fixAll": true
+    },
+    "[typescriptreact]": {
+        // "editor.defaultFormatter": "vscode.typescript-language-features"
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    },
+    "eslint.format.enable": true,
+}
