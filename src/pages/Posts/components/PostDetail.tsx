@@ -19,7 +19,7 @@ import {
   Slide
 } from '@mui/material'
 import { useMutation } from '@tanstack/react-query'
-import { updatePost } from 'services/posts'
+import { updatePost, deletePost } from 'services/posts'
 
 const Transition = React.forwardRef(function Transition (
   props: TransitionProps & {
@@ -59,6 +59,8 @@ const PostDetail: React.FC = () => {
     body: newBody ?? ''
   }))
 
+  const deleteMutation = useMutation(async (postId: number) => await deletePost(postId))
+
   const reinitializeForm = (): void => {
     setNewTitle(undefined)
     setNewBody(undefined)
@@ -86,6 +88,15 @@ const PostDetail: React.FC = () => {
           <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
               Edit post
           </Typography>
+          <Button autoFocus color="inherit"
+            onClick={() => {
+              if (postDetail?.id) {
+                deleteMutation.mutate(postDetail.id)
+                reinitializeForm()
+              }
+            }}>
+              delete
+          </Button>
           <Button autoFocus color="inherit"
             onClick={() => {
               updateMutation.mutate()
