@@ -36,3 +36,12 @@ export const updatePost = async (post: Post | undefined) => {
       .then(async (response) => await response.json())
   }
 }
+export const deletePost = async (postId: number) => {
+  await fetch(`${process.env.REACT_APP_BASE_URL}posts/${postId}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8'
+    }
+  })
+    .then(async (response) => await response.json())
+}
