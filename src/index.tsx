@@ -5,23 +5,37 @@ import {
   Routes,
   Route
 } from 'react-router-dom'
+import { store } from './store'
+import { Provider } from 'react-redux'
 import reportWebVitals from './reportWebVitals'
-import Home from './pages/Home'
+import LandingList from './pages/LandingList'
 import NotFound from './pages/NotFound'
 import './styles/globals.scss'
+import { createTheme, ThemeProvider } from '@mui/material'
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 )
 
+// v5 override syntax
+const customTheme = createTheme({
+  shape: {
+    borderRadius: 10
+  }
+})
+
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </BrowserRouter>
+    <ThemeProvider theme={customTheme}>
+      <Provider store={store}>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<LandingList />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </Provider>
+    </ThemeProvider>
   </React.StrictMode>
 )
 
