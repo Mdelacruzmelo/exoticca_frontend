@@ -8,7 +8,7 @@ import {
 import { store } from './store'
 import { Provider } from 'react-redux'
 import reportWebVitals from './reportWebVitals'
-import Home from './pages/Home'
+import LandingList from './pages/LandingList'
 import NotFound from './pages/NotFound'
 import './styles/globals.scss'
 
@@ -21,7 +21,7 @@ root.render(
     <Provider store={store}>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<LandingList />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
