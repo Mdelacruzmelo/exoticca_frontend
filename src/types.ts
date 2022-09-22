@@ -8,10 +8,10 @@ export interface User {
 }
 
 export interface Post {
-  id: number
-  userId: number
-  title: string
-  body: string
+  id?: number
+  userId?: number
+  title?: string
+  body?: string
   actions?: JSX.Element
 }
 

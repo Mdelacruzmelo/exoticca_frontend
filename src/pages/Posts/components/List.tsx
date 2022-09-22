@@ -27,6 +27,8 @@ import { getPostColumns, getPostRows } from '../utils'
 import { LIMIT_PAGE } from 'const'
 import DataNotFound from './DataNotFound'
 import styles from '../styles.module.scss'
+import { openPostDetail, setPostDetail } from 'store/slicePosts'
+import PostDetail from './PostDetail'
 
 const List = (): ReactElement => {
   // Local state
@@ -47,7 +49,12 @@ const List = (): ReactElement => {
     }
   }, [users])
 
-  const rows = getPostRows(posts)
+  const openDetails = (post: Post): void => {
+    dispatch(setPostDetail(post))
+    dispatch(openPostDetail())
+  }
+
+  const rows = getPostRows(posts, openDetails)
   const columns = getPostColumns(usersList)
 
   if (isError) {
@@ -118,7 +125,11 @@ const List = (): ReactElement => {
           setPage(newPage)
         }}
       />
+
+      <PostDetail/>
+
     </Paper>
+
   )
 }
 
