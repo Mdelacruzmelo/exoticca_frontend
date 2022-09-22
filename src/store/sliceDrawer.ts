@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 import { createSlice } from '@reduxjs/toolkit'
-import type { RootState } from '../store'
 
 // Define a type for the slice state
 interface DrawerState {
@@ -29,8 +28,5 @@ export const drawerSlice = createSlice({
 })
 
 export const { toggle, open, close } = drawerSlice.actions
-
-// Other code such as selectors can use the imported `RootState` type
-export const selectDrawerOpened = (state: RootState) => state.drawer.opened
 
 export default drawerSlice.reducer

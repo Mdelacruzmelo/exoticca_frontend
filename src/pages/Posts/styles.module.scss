@@ -14,3 +14,15 @@
 .inputLabel {
     top: -6px !important;
 }
+
+.table {
+    box-shadow: none !important;
+}
+
+.notFound {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2rem;
+}
