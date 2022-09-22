@@ -28,8 +28,8 @@ const LandingList = (): ReactElement<any, any> | null => {
           }
         />
 
-        <Card sx={{ minWidth: 275 }}>
-          <CardContent>
+        <Card sx={{ minWidth: 275, p: 0 }}>
+          <CardContent sx={{ p: 0 }}>
             <Filters/>
             <List/>
           </CardContent>

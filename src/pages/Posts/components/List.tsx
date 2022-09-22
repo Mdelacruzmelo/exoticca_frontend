@@ -68,7 +68,7 @@ const List = (): ReactElement => {
   }
 
   return (
-    <Paper sx={{ width: '100%', overflow: 'hidden' }}>
+    <Paper sx={{ width: '100%', overflow: 'hidden', boxShadow: 'none' }}>
       <TableContainer sx={{ maxHeight: 640 }}>
 
         <Table stickyHeader aria-label="sticky table" className={styles.table}>

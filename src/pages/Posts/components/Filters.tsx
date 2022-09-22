@@ -17,7 +17,7 @@ const Filters = (): ReactElement<any, any> | null => {
   return (
 
     <Grid
-      sx={{ pl: 0, pt: 0 }}
+      sx={{ pl: 0, pt: 0, p: 2 }}
       container
       spacing={2}
       direction="row"
