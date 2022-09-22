@@ -37,7 +37,7 @@ export const getPostColumns = (usersList: User[]): PostColumn[] => {
   ]
 }
 
-export const getPostRows = (posts: Post[] | undefined): Post[] => {
+export const getPostRows = (posts: Post[] | undefined, actionCallback: Function): Post[] => {
   const rows = (posts != null)
     ? posts.map(({ id, userId, title, body }: Post) => {
       return {
@@ -47,10 +47,21 @@ export const getPostRows = (posts: Post[] | undefined): Post[] => {
         body,
         actions: (
           <>
-            <IconButton size="small" onClick={() => { console.info('open modal or sidepanel') }}>
+            <IconButton
+              size="small"
+              onClick={() => {
+                actionCallback({
+                  id,
+                  userId,
+                  title,
+                  body
+                })
+              }}>
               <EditIcon />
             </IconButton>
-            <IconButton size="small" onClick={() => { console.info('open modal or sidepanel') }}>
+            <IconButton
+              size="small"
+              onClick={() => { console.info('open modal or sidepanel') }}>
               <RemoveRedEyeIcon />
             </IconButton>
           </>
