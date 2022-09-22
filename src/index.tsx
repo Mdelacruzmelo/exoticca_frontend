@@ -5,6 +5,8 @@ import {
   Routes,
   Route
 } from 'react-router-dom'
+import { store } from './store'
+import { Provider } from 'react-redux'
 import reportWebVitals from './reportWebVitals'
 import Home from './pages/Home'
 import NotFound from './pages/NotFound'
@@ -16,12 +18,14 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>
 )
 
