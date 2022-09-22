@@ -8,6 +8,8 @@ import Link from '@mui/material/Link'
 import { ReactElement } from 'react'
 import { CustomAppBar, CustomDrawer } from '../components'
 
+import styles from './styles.module.scss'
+
 const drawerWidth = 240
 
 interface Props {
@@ -35,8 +37,8 @@ const Page = ({ children }: Props): ReactElement => {
 
       <Box
         component="main"
-        sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
-      >
+        className={styles.main}
+        sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}>
         <Toolbar />
         {children}
       </Box>

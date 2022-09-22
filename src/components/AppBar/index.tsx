@@ -6,6 +6,7 @@ import Toolbar from '@mui/material/Toolbar'
 import { ReactElement } from 'react'
 import { useAppDispatch } from 'hooks'
 import { toggle } from 'store/sliceDrawer'
+import styles from './styles.module.scss'
 
 const drawerWidth = 240
 
@@ -24,6 +25,7 @@ const CustomAppBar = ({ children }: Props): ReactElement => {
         width: { sm: `calc(100% - ${drawerWidth}px)` },
         ml: { sm: `${drawerWidth}px` }
       }}
+      className={styles.appBar}
     >
       <Toolbar>
         <IconButton

@@ -8,6 +8,9 @@ import TableHead from '@mui/material/TableHead'
 import TablePagination from '@mui/material/TablePagination'
 import TableRow from '@mui/material/TableRow'
 import Chip from '@mui/material/Chip'
+import { IconButton } from '@mui/material'
+import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye'
+import EditIcon from '@mui/icons-material/Edit'
 
 interface Column {
   id: 'id' | 'alias' | 'name' | 'status' | 'market' | 'expirationDate' | 'actions'
@@ -20,10 +23,20 @@ interface Column {
 const columns: readonly Column[] = [
   { id: 'alias', label: 'Landing alias', minWidth: 170 },
   { id: 'name', label: 'Landing name', minWidth: 170 },
-  { id: 'status', label: 'Status', minWidth: 100, format: (value: string) => <Chip label={value}/> },
+  {
+    id: 'status',
+    label: 'Status',
+    minWidth: 100,
+    format: (value: string) => (
+      <Chip
+        label={value}
+        size="small"
+        color={value === 'active' ? 'success' : 'error'}/>
+    )
+  },
   { id: 'market', label: 'Market', minWidth: 100 },
   { id: 'expirationDate', label: 'Expiration date', minWidth: 200 },
-  { id: 'actions', label: 'Actions', minWidth: 60 }
+  { id: 'actions', label: 'Actions', minWidth: 100 }
 ]
 
 interface Data {
@@ -51,40 +64,52 @@ function createData (
     status,
     market,
     expirationDate,
-    actions: (<div>
-      <div>
-          div
-      </div>
-
-        DIV
-    </div>
+    actions: (
+      <>
+        <IconButton size="small" onClick={() => { console.log('open modal or sidepanel') }}>
+          <EditIcon />
+        </IconButton>
+        <IconButton size="small" onClick={() => { console.log('open modal or sidepanel') }}>
+          <RemoveRedEyeIcon />
+        </IconButton>
+      </>
     )
 
   }
 }
 
 const rows = [
-  createData(1, 'CrintianQA', 'qa', 'disabled', 'US', '04/02/2022 10:11:08'),
+  createData(1, 'CrintianQA', 'qa', 'active', 'US', '04/02/2022 10:11:08'),
   createData(2, 'inactive', 'inactive', 'disabled', 'US', '15/03/2022 16:20:40'),
-  createData(3, 'security', 'Security', 'disabled', 'US', null)
+  createData(3, 'security', 'Security', 'disabled', 'US', null),
+  createData(4, 'CrintianQA', 'qa', 'active', 'US', '04/02/2022 10:11:08'),
+  createData(5, 'inactive', 'inactive', 'disabled', 'US', '15/03/2022 16:20:40'),
+  createData(6, 'security', 'Security', 'disabled', 'US', null),
+  createData(7, 'CrintianQA', 'qa', 'active', 'US', '04/02/2022 10:11:08'),
+  createData(8, 'inactive', 'inactive', 'disabled', 'US', '15/03/2022 16:20:40'),
+  createData(9, 'security', 'Security', 'disabled', 'US', null),
+  createData(10, 'CrintianQA', 'qa', 'active', 'US', '04/02/2022 10:11:08'),
+  createData(12, 'inactive', 'inactive', 'disabled', 'US', '15/03/2022 16:20:40'),
+  createData(13, 'security', 'Security', 'disabled', 'US', null),
+  createData(14, 'CrintianQA', 'qa', 'active', 'US', '04/02/2022 10:11:08'),
+  createData(15, 'inactive', 'inactive', 'disabled', 'US', '15/03/2022 16:20:40'),
+  createData(16, 'security', 'Security', 'disabled', 'US', null),
+  createData(17, 'CrintianQA', 'qa', 'active', 'US', '04/02/2022 10:11:08'),
+  createData(18, 'inactive', 'inactive', 'disabled', 'US', '15/03/2022 16:20:40'),
+  createData(19, 'security', 'Security', 'disabled', 'US', null)
 ]
 
 const List = (): ReactElement => {
   const [page, setPage] = React.useState(0)
-  const [rowsPerPage, setRowsPerPage] = React.useState(10)
+  const rowsPerPage = 10
 
   const handleChangePage = (event: unknown, newPage: number): void => {
     setPage(newPage)
   }
 
-  const handleChangeRowsPerPage = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    setRowsPerPage(+event.target.value)
-    setPage(0)
-  }
-
   return (
     <Paper sx={{ width: '100%', overflow: 'hidden' }}>
-      <TableContainer sx={{ maxHeight: 440 }}>
+      <TableContainer sx={{ maxHeight: 640 }}>
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
             <TableRow>
@@ -119,13 +144,12 @@ const List = (): ReactElement => {
         </Table>
       </TableContainer>
       <TablePagination
-        rowsPerPageOptions={[10, 25, 100]}
+        rowsPerPageOptions={[]}
         component="div"
         count={rows.length}
         rowsPerPage={rowsPerPage}
         page={page}
         onPageChange={handleChangePage}
-        onRowsPerPageChange={handleChangeRowsPerPage}
       />
     </Paper>
   )

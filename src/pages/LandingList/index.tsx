@@ -3,6 +3,8 @@ import Button from '@mui/material/Button'
 import { ReactElement } from 'react'
 import Main from 'Layout/Main'
 import Header from 'components/Header'
+import Card from '@mui/material/Card'
+import CardContent from '@mui/material/CardContent'
 import Filters from './components/Filters'
 import List from './components/List'
 
@@ -13,15 +15,18 @@ const LandingList = (): ReactElement<any, any> | null => {
       <Header
         title="Landings List"
         button={
-          <Button variant="contained">
+          <Button variant="contained" size="small">
             New Landing
           </Button>
         }
       />
 
-      <Filters/>
-
-      <List/>
+      <Card sx={{ minWidth: 275 }}>
+        <CardContent>
+          <Filters/>
+          <List/>
+        </CardContent>
+      </Card>
 
     </Main>
   )
