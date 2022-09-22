@@ -8,7 +8,7 @@ import {
 import { store } from './store'
 import { Provider } from 'react-redux'
 import reportWebVitals from './reportWebVitals'
-import LandingList from './pages/LandingList'
+import LandingList from './pages/Posts'
 import NotFound from './pages/NotFound'
 import './styles/globals.scss'
 import { createTheme, ThemeProvider } from '@mui/material'

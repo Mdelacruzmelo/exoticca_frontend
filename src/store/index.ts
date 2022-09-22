@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
 import drawerReducer from './sliceDrawer'
+import usersReducer from './sliceUsers'
 
 export const store = configureStore({
   reducer: {
-    drawer: drawerReducer
+    drawer: drawerReducer,
+    users: usersReducer
   }
 })
 
