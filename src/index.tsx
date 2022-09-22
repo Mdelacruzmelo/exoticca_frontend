@@ -7,7 +7,6 @@ import {
 } from 'react-router-dom'
 import { store } from './store'
 import { Provider } from 'react-redux'
-import reportWebVitals from './reportWebVitals'
 import LandingList from './pages/Posts'
 import NotFound from './pages/NotFound'
 import './styles/globals.scss'
@@ -38,8 +37,3 @@ root.render(
     </ThemeProvider>
   </React.StrictMode>
 )
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals()

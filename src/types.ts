@@ -14,3 +14,16 @@ export interface Post {
   body: string
   actions?: JSX.Element
 }
+
+export interface PostColumn {
+  id: 'id' | 'userId' | 'title' | 'body' | 'actions'
+  label: string
+  minWidth?: number
+  align?: 'right'
+  format?: (value: any) => React.ReactNode
+}
+
+export interface PostFilter {
+  title?: string | null
+  authorId?: number | null
+}
