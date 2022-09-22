@@ -81,7 +81,7 @@ const Filters = (): ReactElement<any, any> | null => {
       </Grid>
 
       <Grid item>
-        <Button variant="contained" size="small">Search</Button>
+        <Button variant="contained">Search</Button>
       </Grid>
 
       <Grid item>

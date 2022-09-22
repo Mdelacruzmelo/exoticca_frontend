@@ -7,6 +7,7 @@ import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
 import Filters from './components/Filters'
 import List from './components/List'
+import AddIcon from '@mui/icons-material/Add'
 
 const LandingList = (): ReactElement<any, any> | null => {
   return (
@@ -16,6 +17,7 @@ const LandingList = (): ReactElement<any, any> | null => {
         title="Landings List"
         button={
           <Button variant="contained" size="small">
+            <AddIcon />
             New Landing
           </Button>
         }

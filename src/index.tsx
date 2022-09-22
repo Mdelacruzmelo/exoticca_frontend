@@ -11,21 +11,31 @@ import reportWebVitals from './reportWebVitals'
 import LandingList from './pages/LandingList'
 import NotFound from './pages/NotFound'
 import './styles/globals.scss'
+import { createTheme, ThemeProvider } from '@mui/material'
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 )
 
+// v5 override syntax
+const customTheme = createTheme({
+  shape: {
+    borderRadius: 10
+  }
+})
+
 root.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<LandingList />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </Provider>
+    <ThemeProvider theme={customTheme}>
+      <Provider store={store}>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<LandingList />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </Provider>
+    </ThemeProvider>
   </React.StrictMode>
 )
 
